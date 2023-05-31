@@ -1,0 +1,60 @@
+import {
+  Routes,
+  Route
+} from "react-router-dom";
+import { Layout, Space } from 'antd';
+
+import './App.css';
+import RouteForm from "./components/RouteForm";
+import RouteDetails from "./components/RouteDetails";
+
+function App() {
+  const { Header, Footer, Content } = Layout;
+
+  const headerStyle = {
+    textAlign: 'center',
+    color: '#fff',
+    height: 64,
+    paddingInline: 50,
+    lineHeight: '64px',
+    backgroundColor: '#7dbcea',
+  };
+  const contentStyle = {
+    textAlign: 'center',
+    minHeight: 120,
+    lineHeight: '120px',
+    color: '#fff',
+    backgroundColor: '#108ee9',
+  };
+  const footerStyle = {
+    textAlign: 'center',
+    color: '#fff',
+    backgroundColor: '#7dbcea',
+  };
+  return (
+    <Space
+    direction="vertical"
+    style={{
+      width: '100%',
+    }}
+    size={[0, 48]}
+  >
+    <Layout>
+      <Header style={headerStyle}>
+        <h1>Nisum Optimizer</h1>
+      </Header>
+      <Content style={contentStyle}>
+        <Routes>
+          <Route path="/optimizedRoute" element={<RouteDetails />} />
+          <Route path="/" element={<RouteForm />} />
+        </Routes>
+      </Content>
+      <Footer style={footerStyle}>
+        Footer
+      </Footer>
+    </Layout>
+  </Space>
+  );
+}
+
+export default App;
